@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-wrap">
+        <div class="wrapp-app">
+            <div class="white-bg-wrap">
+                <h2>Event Listing </h2>
+                <div class="choice-menu">
+                    <div class="city-menu">
+
+                        <p>City: </p>
+                        <select name="" id="city">
+                            <option value="All">All</option>
+                            <option value="Amsterdam">Amsterdam</option>
+                            <option value="Berlin">Berlin</option>
+                            <option value="Rim">Rim</option>
+                            <option value="Sr.Petersburg">Sr.Petersburg</option>
+                        </select>
+                    </div>
+                    <div class="month-menu">
+                        <p>Month: </p>
+                        <select name="" id="month">
+                            <option value="All">All</option>
+                            <option value="September">September</option>
+                            <option value="November">November</option>
+                            <option value="June">June</option>
+                            <option value="February">February</option>
+                            <option value="May">May</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="event-cards-wrap">
+                    <script>
+                        let city = document.querySelector('#city');
+                        let month = document.querySelector('#month');
+                        let container = document.querySelector('.event-cards-wrap');
+
+                        let cityVal, manthVal;
+                        city.addEventListener('input', function () {
+                            let containersElem = document.querySelectorAll('.event-cards-wrap .event-card');
+                            cityVal = city.value;
+                            clearCard(containersElem);
+                            createCard(sortArr(arr, cityVal));
+                        })
+
+                        // month.addEventListener('input', function () { не смог решить...
+                        //     manthVal = month.value;
+                        // })
+
+                        createCard(arr);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
